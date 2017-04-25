@@ -5,6 +5,8 @@ const checkLengthNotZero = require('./../utils/checkTools').checkLengthNotZero;
 const checkNumber = require('./../utils/checkTools').checkNumber;
 const checkRangeOfLatAndLng = require('./../utils/checkTools').checkRangeOfLatAndLng;
 
+const jsonResponDataGenerator = require('./../utils/responseTools').jsonResponDataGenerator;
+
 const checkLatAndLng = (queryLat, queryLng) => {
     let allCheckPassed = false ;
 
@@ -23,7 +25,7 @@ const checkLatAndLng = (queryLat, queryLng) => {
     
     return allCheckPassed ;
 }
-
+ 
 
 module.exports = (app) => {
     app.get('/v1/ubike-station/taipei', (req, res) => {
@@ -32,6 +34,13 @@ module.exports = (app) => {
         const queryLat = req.query.lat ;
         const queryLng = req.query.lng ;
 
-        res.send(`all check passed: ${checkLatAndLng(queryLat, queryLng)}`);
+        if(!checkLatAndLng(queryLat, queryLng)){
+            res.send(jsonResponDataGenerator(-1));
+        }else{
+            res.send([
+                jsonResponDataGenerator(), 
+                `all check passed: ${checkLatAndLng(queryLat, queryLng)}`
+            ]);
+        }
     });
 }
