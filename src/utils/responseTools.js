@@ -1,4 +1,4 @@
-const jsonResponDataGenerator = (code = -5, result = []) => {
+const jsonResponDataGenerator = (code = -3, result = []) => {
     return ({
         code,
         result

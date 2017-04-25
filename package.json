@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "check-types": "^7.1.5",
-    "express": "^4.15.2"
+    "express": "^4.15.2",
+    "node-fetch": "^1.6.3"
   }
 }
