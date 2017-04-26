@@ -3,7 +3,6 @@ const querystring = require('querystring');
 var fetch = require('node-fetch');
 
 const getGeoData = async (numberLat, numberLng) => {
-    console.log('yo');
     let check = false ; 
     const queryStringObject = {
         latlng : `${numberLat},${numberLng}`
@@ -17,7 +16,6 @@ const getGeoData = async (numberLat, numberLng) => {
         if(await httpResponse.status!=200){
             throw new Error(`${httpResponse.status(httpResponse.statusText)}`);
         }
-
         const result = await httpResponse.json()
         return result ;
     }catch(e){

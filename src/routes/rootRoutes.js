@@ -22,6 +22,8 @@ module.exports = async (app) => {
         }else{
             res.send([
                 jsonResponDataGenerator(), 
+
+                // 下面這行跑了2次..
                 `all check passed: ${checkLatAndLng(queryLat, queryLng)}`
             ]);
         }
