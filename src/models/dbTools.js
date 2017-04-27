@@ -1,0 +1,3 @@
+module.exports = {
+    IS_DB_CONNECTION_SUCCESS : 'IS_DB_CONNECTION_SUCCESS' 
+} ;

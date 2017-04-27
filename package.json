@@ -12,7 +12,9 @@
   "license": "ISC",
   "dependencies": {
     "check-types": "^7.1.5",
+    "cron": "^1.2.1",
     "express": "^4.15.2",
+    "mongoose": "^4.9.6",
     "node-fetch": "^1.6.3"
   }
 }

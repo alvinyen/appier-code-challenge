@@ -1,6 +1,6 @@
 const googleGeoApiAdd = require('./../../../config/config').googleGeoApiAdd ;
 const querystring = require('querystring');
-var fetch = require('node-fetch');
+const fetch = require('node-fetch');
 
 const getGeoData = async (numberLat, numberLng) => {
     let check = false ; 
