@@ -38,4 +38,38 @@ module.exports = async (app) => {
         // console.log(parseFloat(Number(queryLat)));
         // console.log(typeof parseFloat(Number(queryLat)));
     });
+
+    app.get('/findNearMe/:lng/:lat', async (req, res) => {
+        
+        try {
+            const queryCursor =  await YoubikeStation.find({location: { $near: [121.567158, 25.003548] } }, (err, docsCursor) => {
+                if(err){
+                    res.send([jsonResponDataGenerator(-3), 'db cursor failed']);
+                    return ;
+                }
+                
+                // const youbikeStationsArray = [] ;
+                // docsCursor.forEach(async (youbikeStation) => {
+                //     await youbikeStationsArray.push(`${youbikeStation.sna} ${youbikeStation.sbi}`);
+                // });
+
+                // docsCursor.each(async (err, youbikeStation) => {
+                //     await youbikeStationsArray.push(youbikeStation.sna);
+                // });
+
+                // res.send(youbikeStationsArray);
+            }) ;
+
+            const youbikeStationsArray = [] ;
+            queryCursor.forEach(async (youbikeStation) => {
+                await youbikeStationsArray.push(` yo ${youbikeStation.sna} ${youbikeStation.sbi}`);
+            });
+            res.send(youbikeStationsArray);
+
+            // res.send(`${await queryCursor}`);
+        }catch(e){
+            console.log('get near me error...', e);
+        }
+        
+    });
 }
