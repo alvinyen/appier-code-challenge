@@ -26,7 +26,7 @@ db.on('error', (err) => {
 
 db.once('open', () => { 
     app.set(IS_DB_CONNECTION_SUCCESS, isDbConnectionSuccess);
-    cronYoubikeData();
+    // cronYoubikeData();
     YoubikeStation.collection.ensureIndex({ location: '2d' });
     // console.log('success'); 
     // //1. 創建實體
