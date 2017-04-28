@@ -8,7 +8,8 @@ const YoubikeStationSchema = new Schema(
         sna: { type: String,  required: true },
         location: { type: [Number],  required: true },
         sbi: { type: Number, required: true }
-    }
+    },
+    { timestamps: true }
 );
 // YoubikeStationSchema.index( { location: '2d' } );
 

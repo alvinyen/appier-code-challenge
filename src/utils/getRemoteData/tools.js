@@ -41,11 +41,11 @@ const getYoubikeData = async () => {
             // console.log(`youbikeStation.sbi: ${youbikeStation.sbi}`);
 
             bulk.find({ sno: obj.sno }).upsert().updateOne({
-                // $currentDate: {
-                //     lastModified: true
-                //     // ,
-                //     // "cancellation.date": { $type: "timestamp" }
-                // },
+                $currentDate: {
+                    lastModified: true
+                    // ,
+                    // "cancellation.date": { $type: "timestamp" }
+                },
                 $set: {
                     // sno: youbikeStation.sno,
                     // sna: youbikeStation.sna,
