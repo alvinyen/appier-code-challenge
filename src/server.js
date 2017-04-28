@@ -9,7 +9,7 @@ const dbConnectionString = require('./nonCredentialConfiguration/configuration')
 const YoubikeStation = require('./models/youbike');
 const jsonResponDataGenerator = require('./utils/responseTools').jsonResponDataGenerator ;
 
-console.log(dbConnectionString);
+console.log(`dbConnectionString: ${dbConnectionString}`);
 mongoose.connect(dbConnectionString);
 const db = mongoose.connection;
 const IS_DB_CONNECTION_SUCCESS = require('./models/dbTools').IS_DB_CONNECTION_SUCCESS ;
