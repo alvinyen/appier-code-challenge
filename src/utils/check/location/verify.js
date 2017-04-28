@@ -39,7 +39,7 @@ const checkIfIsInTaipei = async (numberLat, numberLng, res) => {
     console.log(`status: ${status}`);
 
     if(status !== 'OK'){
-        console.log('getch Google GeoApi status not OK');
+        console.log('fetch Google GeoApi status not OK');
         return false ;
     }
 
