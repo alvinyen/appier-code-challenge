@@ -42,6 +42,6 @@ rootRoutes(app) ;
 
 // getYoubikeData();
 
-app.listen(port, () => {
+app.listen(process.env.PORT || 5000, () => {
     console.log(`server is running on port ${port}`);
 });
