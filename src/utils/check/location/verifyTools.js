@@ -1,8 +1,9 @@
 const googleGeoApiAdd = require('./../../../config/config').googleGeoApiAdd ;
 const querystring = require('querystring');
 const fetch = require('node-fetch');
+const jsonResponDataGenerator = require('./../../responseTools').jsonResponDataGenerator ;
 
-const getGeoData = async (numberLat, numberLng) => {
+const getGeoData = async (numberLat, numberLng, res) => {
     let check = false ; 
     const queryStringObject = {
         latlng : `${numberLat},${numberLng}`
@@ -21,6 +22,8 @@ const getGeoData = async (numberLat, numberLng) => {
     }catch(e){
         // zet get 
         console.log(`something wrong...${e}`);
+        res.status(500);
+        res.send(jsonResponDataGenerator(-3));
     }
 }
 

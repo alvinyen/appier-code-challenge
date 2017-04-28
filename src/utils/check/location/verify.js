@@ -32,8 +32,8 @@ const isTaipeiCity = (longNameOfTheFifthAddressComponent) => {
     return isTaipeiCity ;
 } ;
 
-const checkIfIsInTaipei = async (numberLat, numberLng) => {
-    const responseData = await getGeoData(numberLat, numberLng);
+const checkIfIsInTaipei = async (numberLat, numberLng, res) => {
+    const responseData = await getGeoData(numberLat, numberLng, res);
     // console.log(responseData) ;
     const status = responseData.status ; 
     console.log(`status: ${status}`);
