@@ -82,7 +82,7 @@ const checkIfIsInTaipei = async (numberLat, numberLng, res) => {
             return false ;
         }
     }else{
-        console.log(`in checkIfIsInTaipei 『else』`);
+        console.log(`in checkIfIsInTaipei 『else』： status !== ok or longNameOfAdministractiveAreaLevel1.length === 0 (no AdministractiveAreaLevel1 in address component array)`);
         return false ;
     }
 }
