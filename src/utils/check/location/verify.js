@@ -48,25 +48,32 @@ const checkIfIsInTaipei = async (numberLat, numberLng, res) => {
     console.log(`theFirstTypeOfTypesArray: ${theFirstTypeOfTypesArray}`);
     // street_address, country, political
 
-    const addressComponents = firstObjectOfResults.address_components ;
+    const addressComponentsArray = firstObjectOfResults.address_components ;
     // console.log(`addressComponents: ${addressComponents}`);
+    let longNameOfAdministractiveAreaLevel1 = '' ;
+    for(let index in addressComponentsArray){
+        const addressComponent = addressComponentsArray[index] ;
+        if( addressComponent.types[0] === ADMINISTRATIVE_AREA_LEVEL_1){
+            longNameOfAdministractiveAreaLevel1 = addressComponent.long_name ;
+            break ;
+        }
+    }
+    console.log(`longNameOfAdministractiveAreaLevel1: ${longNameOfAdministractiveAreaLevel1}`);
 
-    const theFifthAddressComponent = addressComponents[4] ;
+    // const theFifthAddressComponent = addressComponents[4] ;
     // console.log(`theFifthAddressComponent: ${theFifthAddressComponent}`);
 
-    const theFirstTypeOfTheFifthAddressComponent = theFifthAddressComponent.types[0] ;
-    console.log(`theFirstTypeOfTheFifthAddressComponent: ${theFirstTypeOfTheFifthAddressComponent}`);
+    // const theFirstTypeOfTheFifthAddressComponent = theFifthAddressComponent.types[0] ;
+    // console.log(`theFirstTypeOfTheFifthAddressComponent: ${theFirstTypeOfTheFifthAddressComponent}`);
     // administrative_area_level_1
 
-    const longNameOfTheFifthAddressComponent = theFifthAddressComponent.long_name ;
-    console.log(`longNameOfTheFifthAddressComponent: ${longNameOfTheFifthAddressComponent}`);
+    // const longNameOfTheFifthAddressComponent = theFifthAddressComponent.long_name ;
+    // console.log(`longNameOfTheFifthAddressComponent: ${longNameOfTheFifthAddressComponent}`);
 
     if(status === 'OK' 
-        && theFirstTypeOfTypesArray === STREET_ADDRESS 
-        && theFirstTypeOfTheFifthAddressComponent === ADMINISTRATIVE_AREA_LEVEL_1 ){
-
-        console.log('gone');
-        const isTaipei = isTaipeiCity(longNameOfTheFifthAddressComponent) ;
+        && longNameOfAdministractiveAreaLevel1.length !== 0 ){
+        console.log(`in checkIfIsInTaipei 『if』, status ok and longNameOfAdministractiveAreaLevel1.length !== 0`);
+        const isTaipei = isTaipeiCity(longNameOfAdministractiveAreaLevel1) ;
         if(isTaipei){
             console.log(`isTaipei: ${isTaipei}`);
             return true ;
@@ -74,9 +81,8 @@ const checkIfIsInTaipei = async (numberLat, numberLng, res) => {
             console.log(`isTaipei: ${isTaipei}`);
             return false ;
         }
-
     }else{
-        console.log('yo');
+        console.log(`in checkIfIsInTaipei 『else』`);
         return false ;
     }
 }
