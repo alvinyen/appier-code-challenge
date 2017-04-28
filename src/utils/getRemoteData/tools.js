@@ -1,5 +1,5 @@
 const fetch = require('node-fetch');
-const youbikeDataApiAdd = require('./../../config/config').youbikeDataApiAdd;
+const youbikeDataApiAdd = require('./../../nonCredentialConfiguration/configuration').youbikeDataApiAdd;
 
 const YoubikeStation = require('./../../models/youbike');
 

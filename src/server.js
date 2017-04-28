@@ -1,11 +1,11 @@
 const express = require('express');
 let app = express();
-const port = require('./config/config').port ;
+const port = require('./nonCredentialConfiguration/configuration').port ;
 const rootRoutes = require('./routes/rootRoutes');
 const cronYoubikeData = require('./utils/cronTools').cronYoubikeData ;
 const getYoubikeData = require('./utils/getRemoteData/tools').getYoubikeData ;
 const mongoose = require('mongoose');
-const dbConnectionString = require('./config/config').dbConnectionString ;
+const dbConnectionString = require('./nonCredentialConfiguration/configuration').dbConnectionString ;
 const YoubikeStation = require('./models/youbike');
 const jsonResponDataGenerator = require('./utils/responseTools').jsonResponDataGenerator ;
 

@@ -1,4 +1,4 @@
-const googleGeoApiAdd = require('./../../../config/config').googleGeoApiAdd ;
+const googleGeoApiAdd = require('./../../../nonCredentialConfiguration/configuration').googleGeoApiAdd ;
 const querystring = require('querystring');
 const fetch = require('node-fetch');
 const jsonResponDataGenerator = require('./../../responseTools').jsonResponDataGenerator ;
