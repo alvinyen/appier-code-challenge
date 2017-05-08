@@ -5,7 +5,6 @@ const YoubikeStation = require('./../../models/youbike');
 
 
 const getYoubikeData = async () => {
-
     try {
         const bulk = YoubikeStation.collection.initializeOrderedBulkOp();
         const httpResponse = await fetch(youbikeDataApiAdd);
@@ -60,7 +59,6 @@ const getYoubikeData = async () => {
             });
         });
 
-
         await bulk.execute((err, result) => {
             if (err) {
                 console.log('sth error..', err);
@@ -69,14 +67,9 @@ const getYoubikeData = async () => {
             }
         });
 
-        // const result = await httpResponse.json()
-        // return result ;
     } catch (e) {
-        // zet get 
-        // if (e !== BreakException) throw e;
-        console.log(`something wrong...${e}`);
+        console.log(`something wrong：${e}`);
     }
-
 };
 
 module.exports = {

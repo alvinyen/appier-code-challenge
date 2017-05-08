@@ -1,6 +1,11 @@
 module.exports = {
-    port: 3000,
-    dbConnectionString: 'mongodb://domain:dbPost...',
+    port: 123456789,
+    googleGeoApiAdd: 'http://xxx.xxx.xxx',
+    youbikeDataApiAdd: 'http://xxx.xxx.xxx',
+    dbName: 'xxxxx',
+    dbConnectionString: 'db connection string',
     SALT_FACTOR: 'xxx',
-    secret: 'xxx'
+    secret: 'xxx',
+    account: 'xxx',
+    password: 'xxx'
 } ;

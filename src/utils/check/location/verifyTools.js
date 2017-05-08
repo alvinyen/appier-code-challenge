@@ -10,7 +10,6 @@ const getGeoData = async (numberLat, numberLng, res) => {
     } ;
 
     const urlString = ` ${googleGeoApiAdd}?${querystring.stringify(queryStringObject)} ` ;
-    console.log(`urlString:  ${urlString}`);
 
     try{
         const httpResponse = await fetch(urlString);
@@ -20,8 +19,7 @@ const getGeoData = async (numberLat, numberLng, res) => {
         const result = await httpResponse.json()
         return result ;
     }catch(e){
-        // zet get 
-        console.log(`something wrong...${e}`);
+        console.log(`something wrong：${e}`);
         res.status(500);
         res.send(jsonResponDataGenerator(-3));
     }

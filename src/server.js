@@ -19,16 +19,13 @@ db.on('error', (err) => {
     console.log('db connection failed!..', err); 
     isDbConnectionSuccess = false ;
     app.set(IS_DB_CONNECTION_SUCCESS, isDbConnectionSuccess);
-    // process.exit(1) ;
     // set a db connection variable to indecate suceess or not, to response -3
-    // jsonResponDataGenerator();
 } );
 
 db.once('open', () => { 
     app.set(IS_DB_CONNECTION_SUCCESS, isDbConnectionSuccess);
-    // cronYoubikeData();
     YoubikeStation.collection.ensureIndex({ location: '2d' });
-    // console.log('success'); 
+
     // //1. 創建實體
     // let user = new User({
     //     username: 'alvinnnn',
@@ -36,11 +33,10 @@ db.once('open', () => {
     // });
     // //2. 保存
     // user.save();
+
 } );
 
 rootRoutes(app) ;
-
-// getYoubikeData();
 
 app.listen(process.env.PORT || 5000, () => {
     console.log(`server is running on port ${process.env.PORT || 5000}`);

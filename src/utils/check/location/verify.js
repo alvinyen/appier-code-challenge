@@ -36,10 +36,10 @@ const checkIfIsInTaipei = async (numberLat, numberLng, res) => {
     const responseData = await getGeoData(numberLat, numberLng, res);
     // console.log(responseData) ;
     const status = responseData.status ; 
-    console.log(`status: ${status}`);
+    // console.log(`status: ${status}`);
 
     if(status !== 'OK'){
-        console.log('fetch Google GeoApi status not OK');
+        // console.log('fetch Google GeoApi status not OK');
         return false ;
     }
 
@@ -50,7 +50,7 @@ const checkIfIsInTaipei = async (numberLat, numberLng, res) => {
     // console.log(`firstObjectOfResults: ${firstObjectOfResults}`);
 
     const theFirstTypeOfTypesArray = firstObjectOfResults.types[0] ;
-    console.log(`theFirstTypeOfTypesArray: ${theFirstTypeOfTypesArray}`);
+    // console.log(`theFirstTypeOfTypesArray: ${theFirstTypeOfTypesArray}`);
     // street_address, country, political
 
     const addressComponentsArray = firstObjectOfResults.address_components ;
@@ -77,7 +77,7 @@ const checkIfIsInTaipei = async (numberLat, numberLng, res) => {
 
     if(status === 'OK' 
         && longNameOfAdministractiveAreaLevel1.length !== 0 ){
-        console.log(`in checkIfIsInTaipei 『if』, status ok and longNameOfAdministractiveAreaLevel1.length !== 0`);
+        // console.log(`in checkIfIsInTaipei 『if』, status ok and longNameOfAdministractiveAreaLevel1.length !== 0`);
         const isTaipei = isTaipeiCity(longNameOfAdministractiveAreaLevel1) ;
         if(isTaipei){
             console.log(`isTaipei: ${isTaipei}`);
@@ -87,7 +87,7 @@ const checkIfIsInTaipei = async (numberLat, numberLng, res) => {
             return false ;
         }
     }else{
-        console.log(`in checkIfIsInTaipei 『else』： status !== ok or longNameOfAdministractiveAreaLevel1.length === 0 (no AdministractiveAreaLevel1 in address component array)`);
+        // console.log(`in checkIfIsInTaipei 『else』： status !== ok or longNameOfAdministractiveAreaLevel1.length === 0 (no AdministractiveAreaLevel1 in address component array)`);
         return false ;
     }
 }

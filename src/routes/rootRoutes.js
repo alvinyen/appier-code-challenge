@@ -10,8 +10,6 @@ const IS_DB_CONNECTION_SUCCESS = require('./../models/dbTools').IS_DB_CONNECTION
 
 const getStatationsFromDataBase = require('./../utils/youbikeStationTools').getStatationsFromDataBase;
 
-
-
 module.exports = async (app) => {
     app.get('/v1/ubike-station/taipei', async (req, res) => {
 
@@ -21,12 +19,12 @@ module.exports = async (app) => {
         const numberLng = Number(queryLng);
         let resultOfGetStations = [];
 
-        console.log(`IS_DB_CONNECTION_SUCCESS: ${app.get(IS_DB_CONNECTION_SUCCESS)}`);
+        // console.log(`IS_DB_CONNECTION_SUCCESS: ${app.get(IS_DB_CONNECTION_SUCCESS)}`);
 
         if (!app.get(IS_DB_CONNECTION_SUCCESS)) {
             res.status(500);
             res.send(jsonResponDataGenerator(-3));
-            console.log(`IS_DB_CONNECTION_SUCCESS: ${app.get(IS_DB_CONNECTION_SUCCESS)}`);
+            // console.log(`IS_DB_CONNECTION_SUCCESS: ${app.get(IS_DB_CONNECTION_SUCCESS)}`);
             return ;
         } else if (!checkLatAndLng(queryLat, queryLng)) {
             res.status(200);
@@ -38,12 +36,9 @@ module.exports = async (app) => {
             return ;
         } else {
             
-            // const queryResult =  await YoubikeStation.find({location: { $near: [numberLng, numberLat] } }) ;
-            // const queryResult = getStatationsFromDataBase(numberLng, numberLat, res);
             resultOfGetStations = await getStatationsFromDataBase(numberLng, numberLat, res) ;
 
-            // console.log(resultOfGetStations);
-            console.log(resultOfGetStations.length);
+            // console.log(resultOfGetStations.length);
 
             if (resultOfGetStations.length >= 0) {
                 res.status(200);
@@ -54,13 +49,13 @@ module.exports = async (app) => {
             } else {
                 res.status(500);
                 res.send(jsonResponDataGenerator(-3));
-                console.log(`unknow failed`);
+                // console.log(`unknow failed`);
             }
             return ;
         }
 
-        res.status(500);
-        res.send(jsonResponDataGenerator(-3));
-        return;
+        // res.status(500);
+        // res.send(jsonResponDataGenerator(-3));
+        // return;
     });
 }

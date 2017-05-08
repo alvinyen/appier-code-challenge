@@ -5,9 +5,7 @@ const getStatationsFromDataBase = async (numberLng, numberLat, res) => {
     let youbikeStationsArray = [] ;
     try {
         const queryResult =  await YoubikeStation.find({location: { $near: [numberLng, numberLat] } }) ;
-
         for( key in queryResult) {
-
             if(youbikeStationsArray.length >= 2){
                 break ;
             }
@@ -24,13 +22,7 @@ const getStatationsFromDataBase = async (numberLng, numberLat, res) => {
                 console.log(`${youbikeStation.sna}: ${youbikeStation.sbi}`);
             }
         }
-
-        console.log(youbikeStationsArray);
-        console.log(`length: ${youbikeStationsArray.length}`);
-
     }catch(e){
-        console.log(2);
-        console.log('get near me error.....................', e);
         res.status(500);
         res.send(jsonResponDataGenerator(-3));
         return [] ;
