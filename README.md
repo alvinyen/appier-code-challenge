@@ -59,9 +59,9 @@
             }
             ```
 ## 測資
-- [given location in Taipei City]( https://find-near-me.herokuapp.com/v1/ubike-station/taipei?lat=25.062645&lng=121.574267)
+- given location in Taipei City
     -  https://find-near-me.herokuapp.com/v1/ubike-station/taipei?lat=25.062645&lng=121.574267
-- [given location in Argentina](  https://find-near-me.herokuapp.com/v1/ubike-station/taipei?lat=-40.338582&lng=-67.235581)
+- given location in Argentina
     -   https://find-near-me.herokuapp.com/v1/ubike-station/taipei?lat=-40.338582&lng=-67.235581
-- [given location in New Taipei City](  https://find-near-me.herokuapp.com/v1/ubike-station/taipei?lat=25.003993&lng=121.600701)
+- given location in New Taipei City
     -   https://find-near-me.herokuapp.com/v1/ubike-station/taipei?lat=25.003993&lng=121.600701
