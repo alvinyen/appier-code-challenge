@@ -8,7 +8,7 @@
 - [台北市政府開放資料的youbike data](http://data.taipei/opendata/datalist/datasetMeta?oid=8ef1626a-892a-4218-8344-f7ac46e1aa48)每分鐘更新1次，因此另外設定cron job每分鐘藉由開放資料的api獲取台北市各youbike站點的即時資訊 (例如youbike剩餘數量等等)，並進一步更新到mongo db service：mLab。
 - cron jon的部分原本含在本專案中，但部署於heroku後發現超過30分鐘內沒有任何request則包括cron job部分的整個應用就會被閒置，因此將cron job的部分另外抽出為專案：[cron-job-fetch-youbike-data-every-min](https://github.com/alvinyen/cron-job-fetch-youbike-data-every-min)，部署於Digital Ocean。
 
-##API SPEC.
+## API SPEC.
 - host： https://find-near-me.herokuapp.com
 - /v1/ubike-station/taipei
     - Request Method: GET
@@ -49,6 +49,7 @@
         - GET /v1/ubike-station/taipei?lat=25.034153&lng=121.568509
         - response
             Content-Type: application/json
+            ```
             {
                 "code": 0,
                 "result": [
@@ -56,3 +57,4 @@
                     {"station": "世貿二館", "num_ubike": 33}
                 ]               
             }
+            ```
